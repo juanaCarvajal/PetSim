@@ -58,7 +58,7 @@ function create() {
   this.anims.create({ key: 'idle_playing', frames: this.anims.generateFrameNumbers('cat_playing_anim', { start: 0, end: 1 }), frameRate: 1, repeat: -1 });
   this.anims.create({ key: 'idle_sleeping', frames: this.anims.generateFrameNumbers('cat_sleeping_anim', { start: 0, end: 1 }), frameRate: 1, repeat: -1 });
 
-  // Gato en el centro
+  // Gato 
   this.pet = this.add.sprite(400, 480, 'cat_standing_anim').setScale(3);
   this.pet.play('idle_standing');
 
@@ -84,7 +84,7 @@ function create() {
     bars[name].bar = this.add.graphics();
   });
 
-  // Botones en 2x2 abajo
+  // Botones
   const actions = ['Pet', 'Feed', 'Water', 'Play'];
   const buttonStartX = 300;
   const buttonStartY = 570;
@@ -156,7 +156,6 @@ function create() {
     });
   });
 
-  // Disminución automática de las barras
   this.time.addEvent({
     delay: 5000,
     loop: true,
@@ -179,7 +178,7 @@ function update() {
     bar.bar.fillRect(bar.x, bar.y, 150 * (bar.value / maxBar), 20);
   });
 
-  // Dormir si todas las barras están muy bajas
+  // Dormir
   if (
     bars.Love.value < 20 &&
     bars.Hunger.value < 20 &&
