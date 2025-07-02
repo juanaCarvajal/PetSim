@@ -92,7 +92,7 @@ function create() {
     }).setOrigin(0.5);
 
     // Botón para reiniciar
-    const retryBtn = scene.add.text(250, 350, 'Reiniciar', {
+    const retryBtn = scene.add.text(250, 350, 'Retry', {
       fontSize: '24px',
       backgroundColor: '#ffffff',
       padding: { x: 20, y: 10 },
@@ -101,7 +101,7 @@ function create() {
     }).setInteractive();
 
     // Botón para continuar como zombie
-    const continueBtn = scene.add.text(400, 350, '¿Continuar?', {
+    const continueBtn = scene.add.text(400, 350, 'Continue?', {
       fontSize: '24px',
       backgroundColor: '#000000',
       padding: { x: 20, y: 10 },
@@ -240,7 +240,7 @@ function create() {
     delay: 2000,
     loop: true,
     callback: () => {
-      if (isGameOver) return;
+      if (isGameOver || currentAction !== null) return;
 
       bars.Love.value = Math.max(0, bars.Love.value - 1);
       bars.Hunger.value = Math.max(0, bars.Hunger.value - 2);
